@@ -115,9 +115,9 @@ public class Network {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         
-        builder.append("Network:\n");
+        builder.append("Network:");
         for(int i = 0; i < userCount; i++){
-            builder.append(users[i] + "\n");
+            builder.append("\n" + users[i]);
         }
 
         return builder.toString();

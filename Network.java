@@ -89,10 +89,12 @@ public class Network {
     public String mostPopularUser() {
         int max = -1;
         String mostPopularUser = null;
-        
+
         for(int i = 0; i < userCount; i++){
-            if(followeeCount(users[i].getName()) > max){
+            int followers = followeeCount(users[i].getName());
+            if(followers > max){
                 mostPopularUser = users[i].getName();
+                max = followers;
             }
         }
         return mostPopularUser;
@@ -103,6 +105,7 @@ public class Network {
     private int followeeCount(String name) {
         int count = 0;
         for(int i = 0; i < userCount; i++){
+            if(users[i].getName().equals(name)) continue;
             if(users[i].follows(name)) count++;
         }
         return count;
